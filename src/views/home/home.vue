@@ -1,14 +1,14 @@
 
 <template>
   <div class="home">
-    home
-    <img src="/static/img/icon_no_data.png" alt="Alternate Text" />
+    <TreeView />
   </div>
 </template>
 
 <script setup lang="ts">
   import { onMounted, reactive, ref, computed } from 'vue';
   import { useRouter, useRoute } from 'vue-router';
+  import TreeView from '../../components/home/TreeView.vue';
 
 
   const router = useRouter();
