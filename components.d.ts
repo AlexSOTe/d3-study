@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     TreeView: typeof import('./src/components/home/TreeView.vue')['default']
+    'TreeView (2)': typeof import('./src/components/home/TreeView (2).vue')['default']
   }
 }
 
