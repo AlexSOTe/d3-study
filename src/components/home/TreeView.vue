@@ -1,5 +1,6 @@
 <template>
-  <div class="TreeView">
+  <div class="TreeView"
+       ref="TreeView">
   </div>
 </template>
 <script setup lang="ts">
@@ -11,6 +12,8 @@
   const route = useRoute();
   const router = useRouter();
   const query = route.query;
+
+  const TreeView = ref<HTMLDivElement | null>(null);
 
 
   function Draw() {
@@ -41,7 +44,7 @@
     const $linkGroup = $wrap.append('g').attr('class', 'link-group');
     const $nodeGroup = $wrap.append('g').attr('class', 'node-group');
 
-    document.querySelector('.TreeView')!.appendChild($svg.node() as SVGElement);
+    TreeView.value!.appendChild($svg.node() as SVGElement);
 
     /* tree */
 
@@ -207,7 +210,7 @@
   }
 
   onMounted(() => {
-    console.log('onMounted TreeView');
+    console.log('onMounted TreeView', TreeView);
     Draw();
   });
 </script>
