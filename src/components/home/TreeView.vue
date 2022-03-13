@@ -22,18 +22,18 @@
       r: 8,
       color: 'white'
     };
-    const CenterBackground = 'orange';
-    const ParentBackground = 'blue';
-    const TransitionDuration = 100;
+    const rootNodeBgColor = 'orange';
+    const subNodeBgColor = 'blue';
+    const animationDuration = 100;
 
     //创建svg
-    const $svg = d3.create<SVGElement>('svg');
+    const $svg = d3.create('svg');
     $svg.attr('width', '100%');
     $svg.attr('height', '100%');
     $svg.attr('viewBox', '-500 -500 1000 1000');
 
     const $wrap = $svg.append('g');
-    const zoom = d3.zoom<SVGElement, unknown>().on('zoom', ev => {
+    const zoom = d3.zoom().on('zoom', ev => {
       $wrap.attr('transform', ev.transform);
     });
     // @ts-ignore
@@ -88,9 +88,9 @@
               .attr('transform', `translate(${-nodeStyle.width / 4}, ${-nodeStyle.height * 0.33})`)
               .attr('fill', (d: any) => {
                 if (d.depth === 0) {
-                  return CenterBackground;
+                  return rootNodeBgColor;
                 } else if (d.children || d._children) {
-                  return ParentBackground;
+                  return subNodeBgColor;
                 } else {
                   return nodeStyle.background;
                 }
@@ -110,7 +110,7 @@
           exit => {
             exit
               .transition()
-              .duration(init ? 0 : TransitionDuration)
+              .duration(init ? 0 : animationDuration)
               .attr('opacity', 0)
               .attr('transform', (d: any) => `translate(${d.parent.x},${d.parent.y})`)
               .remove()
@@ -140,7 +140,7 @@
         })
       $nodes
         .transition()
-        .duration(init ? 0 : TransitionDuration)
+        .duration(init ? 0 : animationDuration)
         .attr('opacity', 1)
         .attr('transform', d => `translate(${d.x}, ${d.y})`)
       let links = root.links()
@@ -163,7 +163,7 @@
           exit =>
             exit
               .transition()
-              .duration(init ? 0 : TransitionDuration)
+              .duration(init ? 0 : animationDuration)
               .attr('d', d => {
                 let s = d.source
                 let origin = `${s.x},${s.y}`
@@ -173,7 +173,7 @@
               .remove()
         )
         .transition()
-        .duration(init ? 0 : TransitionDuration)
+        .duration(init ? 0 : animationDuration)
         .attr('d', d => {
           let s = d.source
           let t = d.target
