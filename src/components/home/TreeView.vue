@@ -40,6 +40,7 @@
     const zoom = d3.zoom().on('zoom', (ev) => {
       content.attr('transform', ev.transform);
     });
+    // @ts-ignore
     svg.call(zoom);
 
 

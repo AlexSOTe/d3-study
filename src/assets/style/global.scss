@@ -28,3 +28,8 @@ button {
   padding: 5px 10px;
   font-size: 14px;
 }
+
+[class^=Com] {
+  width: 100vw;
+  height: 100vh;
+}
