@@ -19,7 +19,7 @@
     "ant-design-vue": "^2.2.8",
     "axios": "^0.24.0",
     "d3": "^7.1.0",
-    "sote-tools": "^1.0.6",
+    "sote-tools": "^1.0.8",
     "vue": "^3.2.16",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"

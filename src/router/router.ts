@@ -8,12 +8,19 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     component: () => import('@/views/home/home.vue'),
     meta: {
-      title: '机型选择',
+      title: 'home',
     },
   },
   {
     path: '/home',
     redirect: '/',
+  },
+  {
+    path: '/demos',
+    component: () => import('@/views/demos/demos.vue'),
+    meta: {
+      title: 'demos',
+    },
   },
   // 将匹配所有内容并将其放在 `$route.params.pathMatch` 下
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/views/notFound/NotFound.vue') },

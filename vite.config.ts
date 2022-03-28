@@ -70,6 +70,7 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1024, //单个文件限制大小
+    minify: 'terser',
   },
   css: {
     preprocessorOptions: {
