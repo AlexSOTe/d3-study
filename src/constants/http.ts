@@ -1,10 +1,11 @@
 import axios from 'axios';
 // 添加请求拦截器
+const token = 'fake token';
 axios.interceptors.request.use(
   function (config: any) {
     // 在发送请求之前做些什么
     config.headers = {
-      token: 'fake token',
+      token: token,
     };
     return config;
   },

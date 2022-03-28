@@ -58,7 +58,7 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0',
-    port: 4200,
+    port: 4210,
   },
   build: {
     outDir: 'dist/sote_cli_api_base_url/',

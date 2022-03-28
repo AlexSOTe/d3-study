@@ -20,8 +20,8 @@
   async function Draw() {
     //节点的样式
     const nodeStyle = {
-      width: 100,
-      height: 30,
+      width: 30,
+      height: 100,
       background: 'green',
       r: 8,
       color: 'white'
@@ -40,6 +40,7 @@
     const zoom = d3.zoom().on('zoom', (ev) => {
       content.attr('transform', ev.transform);
     });
+    // @ts-ignore
     svg.call(zoom);
 
 
@@ -57,7 +58,6 @@
       .data(data)
       .enter()
       .append('rect')
-      .attr('class', 'node')
       .attr('width', nodeStyle.width)
       .attr('height', nodeStyle.height)
       .attr('rx', nodeStyle.r)
@@ -65,9 +65,11 @@
       .attr('fill', 'lightgreen')
       .attr('stroke', 'red')
       .attr('stroke-width', '1px')
-      .text((d: any) => d.data.name)
       .attr('x', (a: any) => a.x)
       .attr('y', (a: any) => a.y)
+      .append('text')
+      .attr('font-size', '20')
+      .text((d: any) => d.data.name)
   }
 
   onMounted(() => {
